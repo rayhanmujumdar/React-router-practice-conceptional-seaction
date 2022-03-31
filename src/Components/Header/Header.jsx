@@ -21,8 +21,9 @@ const Header = () => {
                 <ul className={`flex flex-col md:flex-row font-mono text-2xl justify-center md:my-0 my-3`}>
                     <li className='mx-2 hover:text-teal-800'><CustomLink  to='/'>Home</CustomLink></li>
                     <li className='mx-2 hover:text-teal-800'><CustomLink to='/coins'>Coin</CustomLink></li>
+                    <li className='mx-2 hover:text-teal-800'><CustomLink to='/Coin-chart'>Coin-Chart</CustomLink></li>
                     <li className='mx-2 hover:text-teal-800'><CustomLink to='/contact'>Contact</CustomLink></li>
-                    <li className='mx-2 hover:text-teal-800'><CustomLink to='/about'>About</CustomLink></li>
+                    <li className='mx-2 hover:text-teal-800'><CustomLink to='/about'>About</CustomLink></li>  
                 </ul>
                 </div>
             </div>

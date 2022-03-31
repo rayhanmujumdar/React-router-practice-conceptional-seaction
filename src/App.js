@@ -14,7 +14,7 @@ import 'aos/dist/aos.css'
 import { useEffect } from 'react';
 import BdAddrees from './Components/Contact/BdAddrees';
 import UsAddress from './Components/Contact/UsAddress';
-import Spinner from './Components/Spinner/Spinner';
+import CoinChart from './Components/CoinChart/CoinChart';
 
 function App() {
   useEffect(()=>{
@@ -33,6 +33,7 @@ function App() {
         <Route path='/about' element={<About></About>}></Route>
         <Route path='/coin/:coinId' element={<Coin></Coin>}></Route>
         <Route path='/coin-detail/:detailId' element={<CoinDetail></CoinDetail>}></Route>
+        <Route path='/Coin-chart' element={<CoinChart></CoinChart>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
