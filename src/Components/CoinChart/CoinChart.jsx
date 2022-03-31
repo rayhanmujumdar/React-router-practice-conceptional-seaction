@@ -4,26 +4,22 @@ import { CartesianGrid, Legend, Line, LineChart, ResponsiveContainer, Tooltip, X
 
 const CoinChart = () => {
     const [coins,setCoins] = useState([]);
-    let allCoins = []
-    // const [mostCoinPrice,setCoinPrice] = useState([]);
+    const [mostCoinPrice,setCoinPrice] = useState([]);
     useEffect(()=>{
         axios.get('https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false')
         .then(data => {
             setCoins(data.data)
         })
     },[]);
-    const allprice = []
-    for(const coin of coins){
-        allprice.push(coin.current_price)
-    }
-    allprice.sort(function(a,b){return b-a})
-    let price = []
-    for(let i = 0; i<allprice.length; i++){
-        const coin = coins.find(coin => coin.current_price === allprice[i])
-        price.push(coin)
-        
-    }
-    const coinPrice = price.slice(0,10)
+    useEffect(() => {
+        const allPrice= coins.map(coin => coin.current_price)
+        allPrice.sort((a,b) => b-a)
+        const price = allPrice.map(price => {
+            return coins.find(coin => coin.current_price === price)
+        })
+        setCoinPrice(price)
+    },[coins])
+    const coinPrice = mostCoinPrice.slice(0,10)
     return (
         <div>
         <h1 className='my-10 text-5xl font-mono'>Most popluar Coins Price Chart</h1>
