@@ -1,19 +1,24 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Spinner from '../Spinner/Spinner';
 
 const CoinDetail = () => {
     const {detailId} = useParams();
     const [detail,setDetail] = useState({});
-    
+    const [loading,setLoading] = useState(false)
     useEffect(()=>{
+        setLoading(true)
         const url = `https://api.coingecko.com/api/v3/coins/${detailId}`
         axios.get(url)
-        .then(data => setDetail(data.data))
+        .then(data => {
+            setDetail(data.data)
+            setLoading(false)
+        })
     },[detailId])
-    const {image,name,market_cap_rank,hashing_algorithm,genesis_date,country_origin,community_score,developer_score,liquidity_score,public_interest_score} = detail
-    console.log(detail)
-    return (
+    const { image,name,market_cap_rank,hashing_algorithm,genesis_date,country_origin,community_score,developer_score,liquidity_score,public_interest_score } = detail
+
+    const rendaring = (
         <div  className='flex md:justify-evenly md:flex-row flex-col items-center h-[80vh] bg-slate-200 '>
             <div className='my-10 order-2 md:order-1'
             data-aos="fade-right"
@@ -44,6 +49,13 @@ const CoinDetail = () => {
                 <img src={image?.large} alt="" className='max-w-full'/>
             </div>
         </div>
+    )
+    return (
+        <>
+            {
+                loading ? <Spinner></Spinner> : rendaring
+            }
+        </>
     );
 };
 

@@ -14,6 +14,7 @@ import 'aos/dist/aos.css'
 import { useEffect } from 'react';
 import BdAddrees from './Components/Contact/BdAddrees';
 import UsAddress from './Components/Contact/UsAddress';
+import Spinner from './Components/Spinner/Spinner';
 
 function App() {
   useEffect(()=>{
