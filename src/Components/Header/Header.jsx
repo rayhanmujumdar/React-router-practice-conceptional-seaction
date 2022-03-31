@@ -7,7 +7,7 @@ const Header = () => {
         setNav(open)
     }
     return (
-        <div className='flex justify-between md:flex-row py-6 w-full bg-white sticky top-0 md:justify-between'>
+        <div className='flex justify-between md:flex-row py-6 w-full bg-white sticky top-0 z-30 md:justify-between'>
             <div className='ml-4'>
                 <h1 className='text-2xl font-bold font-mono text-gray-600'>Crypto Cafe</h1>
             </div>

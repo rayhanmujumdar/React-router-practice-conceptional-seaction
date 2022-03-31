@@ -20,8 +20,8 @@ const Footer = () => {
                     <i class="fa-brands fa-amazon"></i>
                 </a>
             </div>
-            <div>
-                <h1>amar sonar bangla ami tomay balobashi</h1>
+            <div className='my-5'>
+                <h1 className='text-cyan-600'>All Rights Reserved By © Crypto Cafe | 2022-2026</h1>
             </div>
         </div>
     );
